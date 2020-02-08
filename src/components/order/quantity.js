@@ -10,10 +10,10 @@ function OrderItemQuantity(props) {
 
     return (
         <div className="order__qnty">
-            <button onClick={()=>props.decrementOrderQnty(orderId, id, qnty)}>-</button>
+            <button onClick={()=>{if(qnty >= 0 && qnty < 100)props.decrementOrderQnty(orderId, id, qnty)}}>-</button>
             {/* <input value={iqnty} min="0" max="99" type="number" onChange={($event)=>{setIqnty($event.target.value);props.changeOrderQnty(orderId, id, qnty, $event.target.value)}}/> */}
             <input value={qnty} min="0" max="99" type="number" readOnly/>
-            <button onClick={()=>props.incrementOrderQnty(orderId, id, qnty)}>+</button>
+            <button onClick={()=>{if(qnty >= 0 && qnty < 100)props.incrementOrderQnty(orderId, id, qnty)}}>+</button>
         </div>
     )
 }
