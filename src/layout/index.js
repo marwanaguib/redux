@@ -9,10 +9,12 @@ export default function Layout(props) {
         return React.cloneElement(child,{...child.props})
         });
   return (
-      <div className="wrapper">
-        <Header></Header>
-        {childrens}
-        <Footer></Footer>
+      <div className="container-fluid">
+        <div className="wrapper">
+            <Header></Header>
+            <div className="mainContent">{childrens}</div>
+            <Footer></Footer>
+        </div>
       </div>
   )
 }

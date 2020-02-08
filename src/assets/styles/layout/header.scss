@@ -1,0 +1,15 @@
+.mainHeader{
+    background: $menuBg;
+    .navbar-toggler{
+        color: $menuToggle;
+        border: 0;
+        padding: 0;
+    }
+    .nav{
+        &-link{
+            color: $menuToggle;
+            font-weight: 600;
+        }
+        
+    }
+}

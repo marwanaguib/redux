@@ -1,4 +1,4 @@
-import { GET_ORDER_SUCCESS } from '../../actions/order/index'
+import { GET_ORDER_SUCCESS, ORDER_QNTY_SUCCESS } from '../../actions/order/index'
 
 const orderInitialState = {
     "id": null,
@@ -34,6 +34,24 @@ export default function (state= orderInitialState, action){
     switch (action.type) {
         case GET_ORDER_SUCCESS:
             return {...state,...action.payload}
+        case ORDER_QNTY_SUCCESS:
+            if(action.incrementFlag){
+                return {...state, order_items: [...state.order_items].map((item)=>{
+                    if(item.id == action.itemId){
+                        return {...item, quantity: ++item.quantity};
+                    }else{
+                        return item;
+                    }
+                })}
+            }else{
+                return {...state, order_items: [...state.order_items].map((item)=>{
+                    if(item.id == action.itemId){
+                        return {...item, quantity: --item.quantity};
+                    }else{
+                        return item;
+                    }
+                })}
+            }
         default:
             return state
     }

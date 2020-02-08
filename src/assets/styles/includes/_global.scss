@@ -1,0 +1,29 @@
+.wrapper{
+  border: 1px $gray solid;
+  background: $cardBg;
+  .mainContent{
+    padding: 10px;
+  }
+}
+*,*:focus{
+  outline: none!important;
+}
+
+h2, *{
+  color: $titleColor;
+}
+.table-bordered{
+  th,td{
+    border: 0;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
