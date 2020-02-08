@@ -37,7 +37,7 @@ export default function (state= orderInitialState, action){
         case ORDER_QNTY_SUCCESS:
             if(action.incrementFlag){
                 return {...state, order_items: [...state.order_items].map((item)=>{
-                    if(item.id == action.itemId){
+                    if(item.id == action.itemId && item.quantity > 0 && item.quantity < 100){
                         return {...item, quantity: ++item.quantity};
                     }else{
                         return item;
@@ -45,7 +45,7 @@ export default function (state= orderInitialState, action){
                 })}
             }else{
                 return {...state, order_items: [...state.order_items].map((item)=>{
-                    if(item.id == action.itemId){
+                    if(item.id == action.itemId && item.quantity > 0 && item.quantity < 100){
                         return {...item, quantity: --item.quantity};
                     }else{
                         return item;
